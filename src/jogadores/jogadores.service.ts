@@ -59,10 +59,23 @@ export class JogadoresService {
   }
 
   private async consultaSeJogadorExiste(_id: string): Promise<Jogador> {
+    // try {
+    //   const jogadorEncontrado = await this.jogadorModel.findOne({ _id }).exec();
+    //   if (!jogadorEncontrado) {
+    //     throw new NotFoundException(`Jogador com id ${_id} nao encontrado!`);
+    //   }
+    //   console.log(jogadorEncontrado);
+    //   return jogadorEncontrado;
+    // } catch (e) {
+    //   throw new BadRequestException(
+    //     `id Informado é invalido ou Jogador não existe!`,
+    //   );
+    // }
     const jogadorEncontrado = await this.jogadorModel.findOne({ _id }).exec();
     if (!jogadorEncontrado) {
       throw new NotFoundException(`Jogador com id ${_id} nao encontrado!`);
     }
+    console.log(jogadorEncontrado);
     return jogadorEncontrado;
   }
 }
